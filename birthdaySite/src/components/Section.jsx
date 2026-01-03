@@ -86,12 +86,47 @@ const Section = () => {
       message: "We're honored to celebrate your life and the beautiful legacy of love you've created. Happy birthday, Grandma! Your presence in our lives has been a constant blessing, filling our days with warmth, wisdom, and unconditional love. Thank you for being such an amazing source of strength and support through every moment—big and small. The way you've nurtured and cared for our family is truly remarkable. Your gentle guidance, endless prayers, and kind heart have shaped us in ways we can never fully express. We're so grateful for every lesson you've taught us and every memory we've shared. On this special day, we pray that God continues to bless you abundantly with good health, happiness, and many more years of joy. We love you more than words can express, Grandma!",
       direction: "right",
     },
+    {
+      id: 11,
+      author: "Prof Chidinma ONWUBERE.",
+      image: img10,
+      message:`Mama mi ni'jebu!!!
+              Ọjọ́ ogójì ọdún méjìlélọ́gọ́rin (80) kì í ṣe kékeré,
+              Oríkì Fun Ìyá Àgbà
+              Mama Hannah Abass:
+
+              Ìyá àgbà ọlọ́gbọ́n,
+              Igi ńlá tí ẹyẹ ń sinmi lé,
+              A-kúnlẹ̀kùnlẹ̀ tí gbogbo wa fi ń gbọ́n,
+              Obìnrin tí ọ̀rọ̀ rẹ̀ ń dá ìjà dúró.
+              Ojú-rere ni í tẹ̀lé ẹ,
+              Àlàáfíà ni í jókòó nílé
+              Ọmọlúàbí tí kọ́ wa ní ìwà,
+              E ma ku ori re Ma ooo!. 
+              Ọlọ́run á fi ayọ̀ àti ìlera tún un kún.
+              Àṣẹeee!!!!!`,
+      direction: "left",
+    },
+    {
+      id: 12,
+      author: "Dr. ( Barr.) Clem Osuji.",
+      image: img10,
+      message:"Mama Hannah, as you are permitted the inconceivable grace of attending the age of 80 in good health, please reciprocate it by sustaining and striving to fulfil, with more diligence, in service to God. I wish you the inner Strength to fulfil this  and pray that the Lord continue to grant you His Boundless Love!  Amen. Happy birthday and many happy returns of the day Mama Hannah Abass!",
+      direction: "right",
+    },
+    {
+      id: 13,
+      author: "Dr. ( Barr.) Clem Osuji.",
+      image: img10,
+      message:"Ma'ami! It is rare to see Octogenarians who are still as briskly as you are today! God Almighty merely vindicated your unconditional Service to Him. Wishing you the best of God's Blessings Ma. Happy Birthday and Many more years of graceful ageing!",
+      direction: "left",
+    },
   ];
 
   return (
     <section id="messages" className="bg-white py-16">
       <div className="max-w-6xl mx-auto px-4">
-        <h2 className="text-4xl font-bold text-center text-rose-800 mb-12 flex justify-center">
+        <h2 className="text-3xl sm:text-4xl font-bold text-center text-rose-800 mb-12 flex justify-center">
           Birthday Messages <AiOutlineMessage className="ms-2" />
         </h2>
         <div className="space-y-12">
@@ -110,17 +145,46 @@ const Section = () => {
               }}
             >
               <div className="w-full md:w-5/6 border-4 border-rose-300 rounded-xl p-6 bg-linear-to-br from-white to-rose-50 shadow-lg transition hover:shadow-2xl hover:-translate-y-1">
-                <div className="grid grid-cols-2 gap-4">
-                  {/* Image section - top left */}
-                  <div className="row-span-2">
-                    <div className="w-full h-full min-h-64 overflow-hidden">
+                {/* Mobile Layout - Stack vertically */}
+                <div className="flex flex-col md:hidden gap-4">
+                  {/* Image on top for mobile */}
+                  <div className="w-full">
+                    <div className="w-full  overflow-hidden">
                       {typeof msg.image === "string" && msg.image.length < 5 ? (
-                        // If it's an emoji (short string)
                         <div className="w-full h-full flex items-center justify-center bg-linear-to-b from-rose-100 to-rose-400 rounded">
                           <span className="text-7xl">{msg.image}</span>
                         </div>
                       ) : (
-                        // If it's an actual image
+                        <img
+                          src={msg.image}
+                          alt={msg.author}
+                          className="w-full h-full object-cover rounded"
+                        />
+                      )}
+                    </div>
+                  </div>
+                  
+                  {/* Message below image for mobile */}
+                  <div className="flex flex-col gap-3">
+                    <p className="text-gray-800 text-base leading-relaxed whitespace-pre-line">
+                      {msg.message}
+                    </p>
+                    <p className="text-rose-700 font-semibold text-lg text-right">
+                      ~ {msg.author}
+                    </p>
+                  </div>
+                </div>
+
+                {/* Desktop Layout - Grid */}
+                <div className="hidden md:grid grid-cols-2 gap-4">
+                  {/* Image section - top left */}
+                  <div className="row-span-2">
+                    <div className="w-full h-full min-h-64 overflow-hidden">
+                      {typeof msg.image === "string" && msg.image.length < 5 ? (
+                        <div className="w-full h-full flex items-center justify-center bg-linear-to-b from-rose-100 to-rose-400 rounded">
+                          <span className="text-7xl">{msg.image}</span>
+                        </div>
+                      ) : (
                         <img
                           src={msg.image}
                           alt={msg.author}
@@ -132,7 +196,7 @@ const Section = () => {
 
                   {/* message */}
                   <div className="flex flex-col justify-start">
-                    <p className="text-gray-800 text-base leading-relaxed align-middle">
+                    <p className="text-gray-800 text-base leading-relaxed align-middle whitespace-pre-line">
                       {msg.message}
                     </p>
                   </div>
